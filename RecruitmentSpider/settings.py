@@ -21,7 +21,7 @@ SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
 # 去重类
 DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
 # Redis settings
-REDIS_URL = 'redis://foobared@spider1:6379'
+REDIS_URL = 'redis://root:foobared@spider1:6379'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'RecruitmentSpider (+http://www.yourdomain.com)'
@@ -82,11 +82,11 @@ FLUME_HOST = 'master'
 FLUME_PORT = 10000
 
 # ssh settings
-SSH_HOST = 'master'
+SSH_HOST = 'spider1'
 SSH_PORT = 22
 SSH_USER = 'root'
-SSH_PASSWORD = 'hadoop'
-FILE_PATH = '/opt/'
+SSH_PASSWORD = 'Password123'
+FILE_PATH = '/opt/storage'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
