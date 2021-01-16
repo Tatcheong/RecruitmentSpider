@@ -1,11 +1,14 @@
 import csv
 import json
+from datetime import datetime, timedelta
 from telnetlib import Telnet
 
 import paramiko
 import pymongo
 from itemadapter import ItemAdapter
 from scrapy.exporters import CsvItemExporter, JsonLinesItemExporter, JsonItemExporter
+
+yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
 
 
 class RemoteJsonPipeline:
@@ -36,7 +39,7 @@ class RemoteJsonPipeline:
         self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         self.client.connect(self.host, self.port, self.user, self.password)
         self.sftp = self.client.open_sftp()
-        self.file = self.sftp.open(self.file_path + '51job1-11.json', 'wb')
+        self.file = self.sftp.open(self.file_path + f'{yesterday}.json', 'wb')
         self.exporter = JsonLinesItemExporter(self.file, encoding='utf-8')
 
     def process_item(self, item, spider):

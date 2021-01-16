@@ -73,9 +73,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'RecruitmentSpider.pipelines.RemoteJsonPipeline': 300,
-# }
+ITEM_PIPELINES = {
+   'RecruitmentSpider.pipelines.RemoteJsonPipeline': 300,
+}
 
 # flume settings
 FLUME_HOST = 'master'
@@ -86,7 +86,7 @@ SSH_HOST = 'spider1'
 SSH_PORT = 22
 SSH_USER = 'root'
 SSH_PASSWORD = 'Password123'
-FILE_PATH = '/opt/storage'
+FILE_PATH = '/opt/storage/'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
